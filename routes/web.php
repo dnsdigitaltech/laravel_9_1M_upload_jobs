@@ -19,4 +19,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/upload', function () {
+    return view('upload-file');
+});
+
+Route::post('/upload', function () {
+    if(request()->has('mycsv')){
+        return 'o arquivo existe';
+    }
+    return 'não existe';
+});
